@@ -10,17 +10,26 @@
   },
   "dependencies": {
     "@crawlee/playwright": "^3.11.5",
+    "@google/generative-ai": "^0.21.0",
+    "@radix-ui/react-checkbox": "^1.1.2",
+    "@radix-ui/react-label": "^2.1.0",
+    "@radix-ui/react-slot": "^1.1.0",
     "axios": "^1.7.7",
     "browserslist": "^4.24.2",
     "cheerio": "^1.0.0",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.1",
     "crawlee": "^3.0.0",
+    "lucide-react": "^0.453.0",
     "next": "15.0.0",
     "playwright": "*",
     "puppeteer": "^23.6.0",
     "puppeteer-extra": "^3.3.6",
     "puppeteer-extra-plugin-stealth": "^2.11.2",
     "react": "19.0.0-rc-65a56d0e-20241020",
-    "react-dom": "19.0.0-rc-65a56d0e-20241020"
+    "react-dom": "19.0.0-rc-65a56d0e-20241020",
+    "tailwind-merge": "^2.5.4",
+    "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
     "@types/react": "18.3.11",

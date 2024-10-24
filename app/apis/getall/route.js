@@ -1,8 +1,8 @@
 import { NextResponse } from "next/server";
 import { exec } from "child_process";
-import path from "path";
-import { name, crawler } from "../crawler.js";
-//import { crawler } from "@/app/utils/crawler";
+import { promisify } from "util";
+
+const execAsync = promisify(exec);
 
 export async function GET(req) {
   try {
@@ -19,21 +19,26 @@ export async function GET(req) {
         { status: 400 }
       );
     }
-    console.log(name);
 
-    const startCrawl = async (website, email, password) => {
-      // Store user data in a temporary object
-      const userData = { email, password };
+    // Define the command to run the crawler
+    const command = `node app/apis/crawler.cjs`;
 
-      await crawler.run({
-        startUrls: [website],
-        userData, // Pass userData to the crawler
-      });
-    };
+    // Run the crawler script using the promisified exec function
+    const { stdout, stderr } = await execAsync(command);
 
-    await startCrawl(email, password, website);
+    if (stderr) {
+      console.error(`stderr: ${stderr}`);
+      return NextResponse.json(
+        { message: "An error occurred during the crawler execution." },
+        { status: 500 }
+      );
+    }
 
-    return NextResponse.json({ status: 200 }, { message: "pass" });
+    console.log(`stdout: ${stdout}`);
+    return NextResponse.json(
+      { message: "Crawler executed successfully", output: stdout },
+      { status: 200 }
+    );
   } catch (error) {
     console.error(error);
     return NextResponse.json({ message: "An error occurred" }, { status: 500 });
