@@ -52,12 +52,17 @@ export async function GET(req, res, next) {
     const genAI = new GoogleGenerativeAI(API_KEY);
     const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
     const result = await model.generateContent([
-      `You are a product tester who will write test cases for the following project. For this product we are building a new feature. Keep the following image in mind, along with all the JSON files that I will send. Generate about 30 geniune test cases which dictate the functionality of usecase and every testcase should be uniquely written for all the feature in the json format { {id: "id", testCase: "testcase"}, {id: "testcase", testCase: "testcase"}} Should be framed uniquely with different starting verb or better vocabulary, Instead of starting every description with (verify that..., or enter or some similar wording), so use different sentence starting verb`,
+      `You are a product tester tasked with writing 10 unique and comprehensive test cases for a new feature were building. Your test cases should follow the provided image and JSON files. Please focus on capturing various aspects of the functionality, ensuring every test case is unique. Your automation code should be in Java 18 using Selenium 4.25.0 and TestNG, with the JSON file as a reference to locate elements. Use specific locators like //tag[contains(text(), 'text')] do not use xpath at all to find elements always use wait before the element is loaded use the new WebDriverWait Syntax. Write each test case in this exact JSON format (no additional details or variations):
+    {
+  { "id": "id", "testCase": "test case description", "selected": false, "code": "code for automation in java with selenium and testng" }, 
+  { "id": "id", "testCase": "test case description", "selected": false, "code": "code for automation in java with selenium and testng" } 
+    }
+Ensure each test case has a distinct starting verb to avoid redundancy.`,
       imageUrl,
       ...jsonParts,
     ]);
 
-    //console.log(result.response.text());
+    console.log(result.response.text());
     return NextResponse.json({
       message: result.response.text(),
     });

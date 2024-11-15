@@ -32,9 +32,23 @@ const visitedUrls = new Set();
 let isLoggedIn = false;
 let screenshotCount = 0; // Counter for screenshots
 
-const loginUrl = "https://sanskruty.com/my-account/";
-const username = "kabiragnihotri@gmail.com";
-const password = "Admin@12345";
+const getArgumentValue = (name) => {
+  const arg = process.argv.find((arg) => arg.startsWith(`${name}=`));
+  return arg ? String(arg.split("=")[1]) : null; // Ensure it's a string
+};
+
+// Retrieve values from the command-line arguments
+const loginUrl = getArgumentValue("loginUrl");
+const username = getArgumentValue("username");
+const password = getArgumentValue("password");
+const websiteUrl = getArgumentValue("websiteUrl");
+const keyword = getArgumentValue("keyword");
+
+// console.log(typeof loginUrl);
+// console.log(typeof username);
+// console.log(typeof password);
+// console.log(typeof websiteUrl);
+// console.log(typeof keyword);
 
 (async () => {
   const crawler = new PlaywrightCrawler({
@@ -42,7 +56,7 @@ const password = "Admin@12345";
       const { loadedUrl } = request;
 
       // Check if the URL contains "sans" and is not already visited
-      if (!loadedUrl.includes("sans") || visitedUrls.has(loadedUrl)) {
+      if (!loadedUrl.includes(keyword) || visitedUrls.has(loadedUrl)) {
         log.info(`Skipping URL: ${loadedUrl}`);
         return;
       }
@@ -61,6 +75,7 @@ const password = "Admin@12345";
       const sanitizedUrl = sanitizeFilename(loadedUrl);
       const screenshotPath = join(screenshotsDir, `${sanitizedUrl}.png`);
 
+      await page.waitForTimeout(5000);
       // Take a screenshot of the page and save it
       await page.screenshot({ path: screenshotPath });
       log.info(`Screenshot saved for ${loadedUrl} at ${screenshotPath}`);
@@ -89,22 +104,59 @@ const password = "Admin@12345";
               key.startsWith("__zone_symbol__")
           );
         }
+        function getXPath(element) {
+          if (!element || !element.parentNode) {
+            return ""; // If element or its parent doesn't exist, return an empty string
+          }
+
+          if (element === document.body) {
+            return "/html/body"; // Base case for body
+          }
+
+          const ix =
+            Array.from(element.parentNode.childNodes)
+              .filter(
+                (node) =>
+                  node.nodeType === Node.ELEMENT_NODE &&
+                  node.nodeName === element.nodeName
+              )
+              .indexOf(element) + 1; // Find index of the current element among its siblings
+
+          // Construct XPath recursively
+          return `${getXPath(
+            element.parentNode
+          )}/${element.nodeName.toLowerCase()}[${ix}]`;
+        }
+
+        function getDirectTextContent(element) {
+          let text = "";
+          for (let node of element.childNodes) {
+            if (node.nodeType === Node.TEXT_NODE) {
+              text += node.textContent.trim();
+            }
+          }
+          return text || null;
+        }
 
         // Find all elements with an "onclick" attribute or programmatic click event listener
-        document.querySelectorAll("*").forEach((el) => {
-          const hasOnClick = el.hasAttribute("onclick") || hasClickListener(el);
-          const isAnchor = el.tagName.toLowerCase() === "a";
+        document
+          .querySelectorAll("div, button, a, span, p, h1, h2, h3, h4, h5, h6")
+          .forEach((el) => {
+            const hasOnClick =
+              el.hasAttribute("onclick") || hasClickListener(el);
+            const isAnchor = el.tagName.toLowerCase() === "a";
+            const isButton = el.tagName.toLowerCase() === "button";
 
-          if (hasOnClick || isAnchor) {
+            //if (hasOnClick || isAnchor || isButton) {
             elementList.push({
               tagName: el.tagName,
-              textContent: el.innerText || el.textContent || null,
-              id: el.id || null,
+              textContent: getDirectTextContent(el),
               href: isAnchor ? el.href || null : null,
               hasOnClick: hasOnClick ? true : false,
+              xpath: getXPath(el),
             });
-          }
-        });
+            //}
+          });
 
         return elementList;
       });
@@ -126,7 +178,7 @@ const password = "Admin@12345";
       await enqueueLinks();
     },
     maxRequestsPerCrawl: 5, // Increased to explore more pages
-    //headless: false,
+    headless: false,
     preNavigationHooks: [
       async ({ page, log }) => {
         if (!isLoggedIn) {
@@ -150,7 +202,10 @@ const password = "Admin@12345";
           await page.click(
             'button[type="submit"], button[name*="sign in"], button[id*="login"], button[type="button"]'
           );
-          await new Promise((resolve) => setTimeout(resolve, 3000));
+
+          await page.waitForTimeout(5000);
+
+          await new Promise((resolve) => setTimeout(resolve, 5000));
 
           // Set login flag
           isLoggedIn = true;
@@ -160,7 +215,7 @@ const password = "Admin@12345";
   });
 
   // Start the crawl
-  await crawler.run(["https://sanskruty.com"]);
+  await crawler.run([websiteUrl]);
 })();
 
 // Function to start crawling the specified URL with credentials

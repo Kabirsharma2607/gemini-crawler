@@ -1,0 +1,165 @@
+{
+  "usableSessionsCount": 2,
+  "retiredSessionsCount": 0,
+  "sessions": [
+    {
+      "id": "session_PQjUiC3nqx",
+      "cookieJar": {
+        "version": "tough-cookie@5.0.0",
+        "storeType": "MemoryCookieStore",
+        "rejectPublicSuffixes": true,
+        "enableLooseMode": false,
+        "allowSpecialUseDomain": true,
+        "prefixSecurity": "silent",
+        "cookies": []
+      },
+      "userData": {},
+      "maxErrorScore": 3,
+      "errorScoreDecrement": 0.5,
+      "expiresAt": "2024-10-29T16:43:59.412Z",
+      "createdAt": "2024-10-29T15:53:59.412Z",
+      "usageCount": 0,
+      "maxUsageCount": 50,
+      "errorScore": 0
+    },
+    {
+      "id": "session_A9nascHO8y",
+      "cookieJar": {
+        "version": "tough-cookie@5.0.0",
+        "storeType": "MemoryCookieStore",
+        "rejectPublicSuffixes": true,
+        "enableLooseMode": false,
+        "allowSpecialUseDomain": true,
+        "prefixSecurity": "silent",
+        "cookies": [
+          {
+            "key": "wordpress_sec_542f04f907a0aed4e70714ab2bab4873",
+            "value": "kabira5%7C1730390044%7CHFn11B1IZsdWNb5e6nZnSQXcT5Ej9NJzSquTOUUT0H2%7C64aec6952626c7d980c7e65b20389d7b574f9e3fd8a77a566c5ef2e8ad2c804a",
+            "expires": "2024-10-29T16:44:15.016Z",
+            "domain": "sanskruty.com",
+            "path": "/wp-content/plugins",
+            "secure": true,
+            "httpOnly": true,
+            "hostOnly": true,
+            "creation": "2024-10-29T15:54:15.018Z",
+            "lastAccessed": "2024-10-29T15:54:15.018Z"
+          },
+          {
+            "key": "wordpress_sec_542f04f907a0aed4e70714ab2bab4873",
+            "value": "kabira5%7C1730390044%7CHFn11B1IZsdWNb5e6nZnSQXcT5Ej9NJzSquTOUUT0H2%7C64aec6952626c7d980c7e65b20389d7b574f9e3fd8a77a566c5ef2e8ad2c804a",
+            "expires": "2024-10-29T16:44:15.016Z",
+            "domain": "sanskruty.com",
+            "path": "/wp-admin",
+            "secure": true,
+            "httpOnly": true,
+            "hostOnly": true,
+            "creation": "2024-10-29T15:54:15.018Z",
+            "lastAccessed": "2024-10-29T15:54:15.018Z"
+          },
+          {
+            "key": "sbjs_migrations",
+            "value": "1418474375998%3D1",
+            "expires": "2024-10-29T16:44:15.016Z",
+            "domain": "sanskruty.com",
+            "path": "/",
+            "hostOnly": false,
+            "creation": "2024-10-29T15:54:15.018Z",
+            "lastAccessed": "2024-10-29T15:54:15.018Z"
+          },
+          {
+            "key": "sbjs_current_add",
+            "value": "fd%3D2024-10-29%2015%3A24%3A02%7C%7C%7Cep%3Dhttps%3A%2F%2Fsanskruty.com%2Fmy-account%2F%7C%7C%7Crf%3D%28none%29",
+            "expires": "2024-10-29T16:44:15.016Z",
+            "domain": "sanskruty.com",
+            "path": "/",
+            "hostOnly": false,
+            "creation": "2024-10-29T15:54:15.019Z",
+            "lastAccessed": "2024-10-29T15:54:15.019Z"
+          },
+          {
+            "key": "sbjs_first_add",
+            "value": "fd%3D2024-10-29%2015%3A24%3A02%7C%7C%7Cep%3Dhttps%3A%2F%2Fsanskruty.com%2Fmy-account%2F%7C%7C%7Crf%3D%28none%29",
+            "expires": "2024-10-29T16:44:15.016Z",
+            "domain": "sanskruty.com",
+            "path": "/",
+            "hostOnly": false,
+            "creation": "2024-10-29T15:54:15.019Z",
+            "lastAccessed": "2024-10-29T15:54:15.019Z"
+          },
+          {
+            "key": "sbjs_current",
+            "value": "typ%3Dtypein%7C%7C%7Csrc%3D%28direct%29%7C%7C%7Cmdm%3D%28none%29%7C%7C%7Ccmp%3D%28none%29%7C%7C%7Ccnt%3D%28none%29%7C%7C%7Ctrm%3D%28none%29%7C%7C%7Cid%3D%28none%29",
+            "expires": "2024-10-29T16:44:15.016Z",
+            "domain": "sanskruty.com",
+            "path": "/",
+            "hostOnly": false,
+            "creation": "2024-10-29T15:54:15.019Z",
+            "lastAccessed": "2024-10-29T15:54:15.019Z"
+          },
+          {
+            "key": "sbjs_first",
+            "value": "typ%3Dtypein%7C%7C%7Csrc%3D%28direct%29%7C%7C%7Cmdm%3D%28none%29%7C%7C%7Ccmp%3D%28none%29%7C%7C%7Ccnt%3D%28none%29%7C%7C%7Ctrm%3D%28none%29%7C%7C%7Cid%3D%28none%29",
+            "expires": "2024-10-29T16:44:15.016Z",
+            "domain": "sanskruty.com",
+            "path": "/",
+            "hostOnly": false,
+            "creation": "2024-10-29T15:54:15.019Z",
+            "lastAccessed": "2024-10-29T15:54:15.019Z"
+          },
+          {
+            "key": "sbjs_udata",
+            "value": "vst%3D1%7C%7C%7Cuip%3D%28none%29%7C%7C%7Cuag%3DMozilla%2F5.0%20%28Windows%20NT%2010.0%3B%20Win64%3B%20x64%29%20AppleWebKit%2F537.36%20%28KHTML%2C%20like%20Gecko%29%20Chrome%2F124.0.0.0%20Safari%2F537.36",
+            "expires": "2024-10-29T16:44:15.016Z",
+            "domain": "sanskruty.com",
+            "path": "/",
+            "hostOnly": false,
+            "creation": "2024-10-29T15:54:15.019Z",
+            "lastAccessed": "2024-10-29T15:54:15.019Z"
+          },
+          {
+            "key": "_lscache_vary",
+            "value": "7514897766131700a52d0c0b0085ac2c",
+            "expires": "2024-10-31T15:54:02.497Z",
+            "domain": "sanskruty.com",
+            "path": "/",
+            "secure": true,
+            "httpOnly": true,
+            "hostOnly": true,
+            "creation": "2024-10-29T15:54:15.019Z",
+            "lastAccessed": "2024-10-29T15:54:15.019Z"
+          },
+          {
+            "key": "wordpress_logged_in_542f04f907a0aed4e70714ab2bab4873",
+            "value": "kabira5%7C1730390044%7CHFn11B1IZsdWNb5e6nZnSQXcT5Ej9NJzSquTOUUT0H2%7Cf70847cc10ed672861f602e7e9116cdc024970ac9722eff63d6b5e396699d857",
+            "expires": "2024-10-29T16:44:15.016Z",
+            "domain": "sanskruty.com",
+            "path": "/",
+            "secure": true,
+            "httpOnly": true,
+            "hostOnly": true,
+            "creation": "2024-10-29T15:54:15.019Z",
+            "lastAccessed": "2024-10-29T15:54:15.019Z"
+          },
+          {
+            "key": "sbjs_session",
+            "value": "pgs%3D3%7C%7C%7Ccpg%3Dhttps%3A%2F%2Fsanskruty.com%2F",
+            "expires": "2024-10-29T16:24:14.000Z",
+            "domain": "sanskruty.com",
+            "path": "/",
+            "hostOnly": false,
+            "creation": "2024-10-29T15:54:15.019Z",
+            "lastAccessed": "2024-10-29T15:54:15.019Z"
+          }
+        ]
+      },
+      "userData": {},
+      "maxErrorScore": 3,
+      "errorScoreDecrement": 0.5,
+      "expiresAt": "2024-10-29T16:43:59.416Z",
+      "createdAt": "2024-10-29T15:53:59.416Z",
+      "usageCount": 2,
+      "maxUsageCount": 50,
+      "errorScore": 0
+    }
+  ]
+}

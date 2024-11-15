@@ -10,10 +10,13 @@ export async function GET(req) {
     const { searchParams } = new URL(req.url);
     const email = searchParams.get("email");
     const password = searchParams.get("password");
-    const website = searchParams.get("website");
+    const loginUrl = searchParams.get("loginUrl");
+    const websiteUrl = searchParams.get("website"); // Use "websiteUrl" for consistency
+    const keyword = searchParams.get("keyword");
 
     // Validate input
-    if (!email || !password || !website) {
+    if (!email || !password || !websiteUrl) {
+      // Replace "website" with "websiteUrl"
       return NextResponse.json(
         { message: "Missing parameters" },
         { status: 400 }
@@ -21,7 +24,7 @@ export async function GET(req) {
     }
 
     // Define the command to run the crawler
-    const command = `node app/apis/crawler.cjs`;
+    const command = `node app/apis/crawler.cjs username=${email} password=${password} websiteUrl=${websiteUrl} keyword=${keyword} loginUrl=${loginUrl}`;
 
     // Run the crawler script using the promisified exec function
     const { stdout, stderr } = await execAsync(command);

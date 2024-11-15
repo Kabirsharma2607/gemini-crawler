@@ -22,6 +22,7 @@
     "crawlee": "^3.0.0",
     "lucide-react": "^0.453.0",
     "next": "15.0.0",
+    "openai": "^4.68.4",
     "playwright": "*",
     "puppeteer": "^23.6.0",
     "puppeteer-extra": "^3.3.6",
